@@ -20,10 +20,14 @@ namespace HomeWork_1
                 new BabysPacifier("Соска", 10.0m,1, "упаковка", 2)
             };
 
+            PrintProducts(products);
+            Console.ReadLine();
+        }
+
+        private static void PrintProducts(Product[] products)
+        {
             foreach (var item in products)
                 Console.WriteLine(item);
-
-            Console.ReadLine();
         }
     }
 }
