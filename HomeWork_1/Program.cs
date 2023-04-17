@@ -19,7 +19,6 @@ namespace HomeWork_1
                 new Diapers("Подгузники", 120.0m, 1, "упаковка", 10, 1, 5, 12, "для детей"),
                 new BabysPacifier("Соска", 10.0m,1, "упаковка", 2)
             };
-
             PrintProducts(products);
             Console.ReadLine();
         }
