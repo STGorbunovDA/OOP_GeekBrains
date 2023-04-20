@@ -46,7 +46,8 @@ namespace HomeWork_2
                     string id = Console.ReadLine();
 
                     if (int.TryParse(id, out int number))
-                       Console.WriteLine(zoo.ShowAnimal(id));
+                        Console.WriteLine(zoo[Convert.ToInt32(id)]);
+                       //Console.WriteLine(zoo.ShowAnimal(id));
                     else Console.WriteLine("Не удалось распознать Id животного, попробуйте еще раз.");
                     Console.ReadLine();
                 }

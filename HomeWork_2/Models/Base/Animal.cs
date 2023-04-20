@@ -27,10 +27,5 @@
             СlassAnimal = сlassAnimal;
         }
 
-        public override string ToString()
-        {
-            return "Такого животного нет";
-        }
-
     }
 }
