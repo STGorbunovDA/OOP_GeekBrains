@@ -1,4 +1,6 @@
 ﻿using HomeWork_2.Repositories;
+using System.Collections;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using static HomeWork_2.Infrastructure.BreedEnums;
 using static HomeWork_2.Infrastructure.ClassAnimalEnums;
@@ -7,7 +9,7 @@ using static HomeWork_2.Infrastructure.NicknamesEnums;
 
 namespace HomeWork_2.Models.Base
 {
-    public class Zoo : IAnimal
+    public class Zoo : IAnimal, IEnumerable
     {
         AnimalRepository animalRepository;
         protected ObservableCollection<Animal> AnimalZoo { get; set; }
@@ -33,13 +35,21 @@ namespace HomeWork_2.Models.Base
 
         #region Печать всех животных зоопарка
 
-        public void ShowAllAnimalsZoo()
+        public IEnumerator GetEnumerator()
         {
-            if (AnimalZoo == null)
-                return;
             foreach (var animal in AnimalZoo)
-                Console.WriteLine(animal);
+               yield return animal;
         }
+
+
+        /// <summary> Старый метод </summary>
+        //public void ShowAllAnimalsZoo()
+        //{
+        //    if (AnimalZoo == null)
+        //        return;
+        //    foreach (var animal in AnimalZoo)
+        //        Console.WriteLine(animal);
+        //}
 
         #endregion
 
@@ -58,14 +68,14 @@ namespace HomeWork_2.Models.Base
 
 
         /// <summary> Старый метод </summary>
-        public Animal ShowAnimal(string id)
-        {
-            int _id = Convert.ToInt32(id);
-            foreach (var animal in AnimalZoo)
-                if (animal.Id == _id)
-                    return animal;
-            return new UnknownAnimal(0);
-        }
+        //public Animal ShowAnimal(string id)
+        //{
+        //    int _id = Convert.ToInt32(id);
+        //    foreach (var animal in AnimalZoo)
+        //        if (animal.Id == _id)
+        //            return animal;
+        //    return new UnknownAnimal(0);
+        //}
 
 
 
@@ -182,7 +192,7 @@ namespace HomeWork_2.Models.Base
             {
                 AnimalZoo.Remove(animal);
                 return true;
-            }   
+            }
             else return false;
 
 

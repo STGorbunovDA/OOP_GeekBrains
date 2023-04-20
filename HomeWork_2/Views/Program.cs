@@ -36,7 +36,11 @@ namespace HomeWork_2
                 if (option == "2")
                 {
                     Console.Clear();
-                    zoo.ShowAllAnimalsZoo();
+                    foreach (var animal in zoo)
+                        Console.WriteLine(animal);
+
+
+                    //zoo.ShowAllAnimalsZoo();
                     Console.ReadLine();
                 }
                 if (option == "3")
@@ -47,7 +51,7 @@ namespace HomeWork_2
 
                     if (int.TryParse(id, out int number))
                         Console.WriteLine(zoo[Convert.ToInt32(id)]);
-                       //Console.WriteLine(zoo.ShowAnimal(id));
+                    //Console.WriteLine(zoo.ShowAnimal(id));
                     else Console.WriteLine("Не удалось распознать Id животного, попробуйте еще раз.");
                     Console.ReadLine();
                 }
@@ -71,7 +75,7 @@ namespace HomeWork_2
                     string id = Console.ReadLine();
 
                     if (int.TryParse(id, out int number))
-                      Console.WriteLine(zoo.VoiceAnimal(id));
+                        Console.WriteLine(zoo.VoiceAnimal(id));
                     else Console.WriteLine("Не удалось распознать Id животного, попробуйте еще раз.");
                     Console.ReadLine();
                 }
@@ -89,7 +93,7 @@ namespace HomeWork_2
                     Console.WriteLine("Введите Id животного (число):");
                     string id = Console.ReadLine();
                     if (int.TryParse(id, out int number))
-                       flag = zoo.RemoveAnimal(Convert.ToInt32(id));
+                        flag = zoo.RemoveAnimal(Convert.ToInt32(id));
                     else Console.WriteLine("Не удалось распознать Id животного, попробуйте еще раз.");
                     if (flag) Console.WriteLine("Животное удалено!");
                     else Console.WriteLine("Такого животного нет!");
@@ -100,7 +104,7 @@ namespace HomeWork_2
                     Console.Clear();
                     foreach (var universalMethod in zoo.UniversalMethodsAnimal())
                         Console.WriteLine($"{universalMethod}");
-                    
+
                     Console.ReadLine();
                 }
                 if (option == "9")
