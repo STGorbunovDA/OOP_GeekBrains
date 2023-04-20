@@ -1,6 +1,5 @@
 ﻿using HomeWork_2.Repositories;
 using System.Collections;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using static HomeWork_2.Infrastructure.BreedEnums;
 using static HomeWork_2.Infrastructure.ClassAnimalEnums;
@@ -38,7 +37,7 @@ namespace HomeWork_2.Models.Base
         public IEnumerator GetEnumerator()
         {
             foreach (var animal in AnimalZoo)
-               yield return animal;
+                yield return animal;
         }
 
 
@@ -155,14 +154,14 @@ namespace HomeWork_2.Models.Base
 
         #region Издать звук животному
 
-        public string VoiceAnimal(string id)
+        public string VoiceAnimal(int id)
         {
-            int _id = Convert.ToInt32(id);
-            foreach (var animal in AnimalZoo)
-                if (animal.Id == _id)
-                    if (animal is ISoundAnimal sound)
-                        return sound.MakeSound();
-            return string.Empty;
+            Animal animal = AnimalZoo.FirstOrDefault(c => c.Id == id);
+            if (animal == null)
+                return string.Empty;
+            if (animal is ISoundAnimal sound)
+                return sound.MakeSound();
+            else return string.Empty;
 
 
         }
@@ -171,14 +170,12 @@ namespace HomeWork_2.Models.Base
 
         #region Издать звук всех животных
 
-        public List<string> VoicesAnimal()
+        public IEnumerable VoicesAnimal()
         {
-            List<string> voicesAnimalList = new List<string>();
+            //List<string> voicesAnimalList = new List<string>();
             foreach (var animal in AnimalZoo)
                 if (animal is ISoundAnimal sound)
-                    voicesAnimalList.Add(sound.MakeSound());
-            return voicesAnimalList;
-
+                    yield return sound.MakeSound();
         }
 
         #endregion
@@ -210,20 +207,19 @@ namespace HomeWork_2.Models.Base
 
         #region выполнить универсальные методы для всех animal
 
-        public List<string> UniversalMethodsAnimal()
+        public IEnumerable UniversalMethodsAnimal()
         {
-            List<string> universalMethodsAnimalList = new List<string>();
+            //List<string> universalMethodsAnimalList = new List<string>();
 
             foreach (var animal in AnimalZoo)
             {
                 if (animal is IFlying flying)
-                    universalMethodsAnimalList.Add(flying.Flying());
+                    yield return flying.Flying();
                 if (animal is IShowingAffection showingAffection)
-                    universalMethodsAnimalList.Add(showingAffection.ShowingAffection());
+                    yield return showingAffection.ShowingAffection();
                 if (animal is ITraining training)
-                    universalMethodsAnimalList.Add(training.Training());
+                    yield return training.Training();
             }
-            return universalMethodsAnimalList;
         }
 
         #endregion

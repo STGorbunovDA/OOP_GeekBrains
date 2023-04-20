@@ -38,8 +38,6 @@ namespace HomeWork_2
                     Console.Clear();
                     foreach (var animal in zoo)
                         Console.WriteLine(animal);
-
-
                     //zoo.ShowAllAnimalsZoo();
                     Console.ReadLine();
                 }
@@ -75,7 +73,7 @@ namespace HomeWork_2
                     string id = Console.ReadLine();
 
                     if (int.TryParse(id, out int number))
-                        Console.WriteLine(zoo.VoiceAnimal(id));
+                        Console.WriteLine(zoo.VoiceAnimal(Convert.ToInt32(id)));
                     else Console.WriteLine("Не удалось распознать Id животного, попробуйте еще раз.");
                     Console.ReadLine();
                 }

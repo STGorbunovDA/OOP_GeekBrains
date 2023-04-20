@@ -3,13 +3,13 @@
     public interface IAnimal
     {
         public void CreateAnimal(string name);
-
-        //void ShowAllAnimalsZoo();
         void AddRandomAnimalInZoo();
         bool RemoveAnimal(int id);
+        string VoiceAnimal(int id);
+
+        //void ShowAllAnimalsZoo();
         //Animal ShowAnimal(string id);
-        string VoiceAnimal(string id);
-        List<string> VoicesAnimal();
-        List<string> UniversalMethodsAnimal();
+        //List<string> VoicesAnimal();
+        //List<string> UniversalMethodsAnimal();
     }
 }
