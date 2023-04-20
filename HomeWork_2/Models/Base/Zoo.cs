@@ -46,17 +46,18 @@ namespace HomeWork_2.Models.Base
         #region Показать выбранное животное 
 
         public Animal this[int id]
-        { 
+        {
             get
             {
                 Animal animal = AnimalZoo.FirstOrDefault(c => c.Id == id);
-                if(animal == null)
+                if (animal == null)
                     return new UnknownAnimal(0);
                 return animal;
             }
         }
 
-        #region старый способ
+
+        /// <summary> Старый метод </summary>
         public Animal ShowAnimal(string id)
         {
             int _id = Convert.ToInt32(id);
@@ -65,7 +66,8 @@ namespace HomeWork_2.Models.Base
                     return animal;
             return new UnknownAnimal(0);
         }
-        #endregion
+
+
 
         #endregion
 
@@ -173,15 +175,24 @@ namespace HomeWork_2.Models.Base
 
         #region Удалить животное из зоопарка
 
-        public void RemoveAnimal(string id)
+        public bool RemoveAnimal(int id)
         {
-            int _id = Convert.ToInt32(id);
-            foreach (var animal in AnimalZoo)
-                if (animal.Id == _id)
-                {
-                    AnimalZoo.Remove(animal);
-                    break;
-                }
+            Animal animal = AnimalZoo.FirstOrDefault(c => c.Id == id);
+            if (animal != null)
+            {
+                AnimalZoo.Remove(animal);
+                return true;
+            }   
+            else return false;
+
+
+            //int _id = Convert.ToInt32(id);
+            //foreach (var animal in AnimalZoo)
+            //    if (animal.Id == _id)
+            //    {
+            //        AnimalZoo.Remove(animal);
+            //        break;
+            //    }
 
         }
 

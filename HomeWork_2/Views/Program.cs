@@ -84,14 +84,15 @@ namespace HomeWork_2
                 }
                 if (option == "7")
                 {
+                    bool flag = false;
                     Console.Clear();
                     Console.WriteLine("Введите Id животного (число):");
                     string id = Console.ReadLine();
-
                     if (int.TryParse(id, out int number))
-                        zoo.RemoveAnimal(id);
+                       flag = zoo.RemoveAnimal(Convert.ToInt32(id));
                     else Console.WriteLine("Не удалось распознать Id животного, попробуйте еще раз.");
-                    Console.WriteLine("Животное удалено");
+                    if (flag) Console.WriteLine("Животное удалено!");
+                    else Console.WriteLine("Такого животного нет!");
                     Console.ReadLine();
                 }
                 if (option == "8")
