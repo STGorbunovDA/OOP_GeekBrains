@@ -81,6 +81,7 @@ namespace HomeWork_2.Models.Base
         #endregion
 
         #region Добавить животное 
+        
         //Использование Null Object pattern
         public void CreateAnimal(string name)
         {
