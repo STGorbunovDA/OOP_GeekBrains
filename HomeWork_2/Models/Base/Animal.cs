@@ -1,6 +1,6 @@
 ﻿namespace HomeWork_2.Models.@Base
 {
-    public abstract class Animal
+    public abstract class Animal: IComparable
     {
         /// <summary> Id животного </summary>
         internal int Id { get; private set; }
@@ -27,5 +27,19 @@
             СlassAnimal = сlassAnimal;
         }
 
+        public int CompareTo(object obj)
+        {
+            Animal p = obj as Animal;
+
+            if (p != null)
+            {
+                if (Weight < p.Weight)
+                    return -1;
+                else if (Weight > p.Weight)
+                    return 1;
+                else return 0;
+            }
+            else throw new Exception("TEST");
+        }
     }
 }

@@ -5,7 +5,7 @@ namespace HomeWork_2
 {
     internal class Program
     {
-        static readonly Zoo zoo = new Zoo();
+        static readonly Zoo zoo = new();
         static void Main()
         {
             PrintMenu();
@@ -23,7 +23,8 @@ namespace HomeWork_2
                 Console.WriteLine("6 - Издать звук всех животных");
                 Console.WriteLine("7 - Удалить животное из зоопарка");
                 Console.WriteLine("8 - Выполнить универсальные методы для всех животных");
-                Console.WriteLine("9 - Выход");
+                Console.WriteLine("9 - Сортировка всех животных по весу");
+                Console.WriteLine("10 - Выход");
                 string option = Console.ReadLine();
 
                 if (option == "1")
@@ -107,9 +108,14 @@ namespace HomeWork_2
                 }
                 if (option == "9")
                 {
-                    return;
+                    Console.Clear();
+                    zoo.SortAnimal();
+                    foreach (var animal in zoo)
+                        Console.WriteLine(animal);
+                    Console.ReadLine();
                 }
-
+                if (option == "10")
+                    return;
             }
         }
     }

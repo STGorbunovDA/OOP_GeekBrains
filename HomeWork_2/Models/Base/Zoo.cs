@@ -41,7 +41,7 @@ namespace HomeWork_2.Models.Base
         }
 
 
-        /// <summary> Старый метод </summary>
+        ///// <summary> Старый метод< /summary>
         //public void ShowAllAnimalsZoo()
         //{
         //    if (AnimalZoo == null)
@@ -81,7 +81,7 @@ namespace HomeWork_2.Models.Base
         #endregion
 
         #region Добавить животное 
-
+        //Использование Null Object pattern
         public void CreateAnimal(string name)
         {
             AnimalZoo.Add(name.ToLower() switch
@@ -222,8 +222,17 @@ namespace HomeWork_2.Models.Base
             }
         }
 
+
+
         #endregion
 
+        #region Сортировка всех животных по весу в базовом абстрактном классе реализован Animal: IComparable
 
+        public void SortAnimal()
+        {
+            AnimalZoo = new ObservableCollection<Animal>(AnimalZoo.OrderBy(i => i));  
+        }
+
+        #endregion
     }
 }
