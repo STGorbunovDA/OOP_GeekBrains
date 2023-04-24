@@ -12,7 +12,7 @@ namespace HomeWork_5.Models
         /// <summary> Класс </summary>
         protected int ClassSchool { get; private set; }
 
-        public Schoolboy(string nameSchool, int classSchool, int id, string name, int lastName, int age) 
+        public Schoolboy(string nameSchool, int classSchool, int id, string name, string lastName, int age) 
             : base(id, name, lastName, age)
         {
             NameSchool = nameSchool;
@@ -30,9 +30,8 @@ namespace HomeWork_5.Models
         }
         public override string ToString()
         {
-            return $"{Id}. " +
-                $"Имя: {Name}\n" +
-                $"Фамилия: {LastName}\n" +
+            return $"{Id}. " + 
+                $"ИФ: {Name} {LastName}\n" +
                 $"Возраст:  {Age}\n" +
                 $"Школа: {NameSchool}\n" +
                 $"Класс: {ClassSchool}\n";

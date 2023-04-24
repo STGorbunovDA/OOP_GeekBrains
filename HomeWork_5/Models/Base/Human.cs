@@ -12,12 +12,12 @@ namespace HomeWork_5.Models.Base
         protected string Name { get; private set; }
 
         /// <summary> Фамилия </summary>
-        protected int LastName { get; private set; }
+        protected string LastName { get; private set; }
 
         /// <summary> Дата рождения </summary>
         protected int Age { get; private set; }
 
-        protected Human(int id, string name, int lastName, int age)
+        protected Human(int id, string name, string lastName, int age)
         {
             Id = id;
             Name = name;

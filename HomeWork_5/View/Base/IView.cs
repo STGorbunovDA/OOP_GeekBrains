@@ -2,11 +2,11 @@
 {
     internal interface IView
     {
-        void ShowMenu();
+        void ShowMenuOne();
         void ShowMessage(string message);
         int ReadChooseInt();
         string ReadString();
-
+        void ShowMenuTwo();
 
     }
 }

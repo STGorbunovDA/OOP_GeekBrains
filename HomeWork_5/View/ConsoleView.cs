@@ -9,12 +9,21 @@ namespace HomeWork_5.View
             
         }
 
-        public void ShowMenu()
+        public void ShowMenuOne()
         {
             Console.Clear();
             Console.WriteLine("1 - Создать компанию");
             Console.WriteLine("2 - Создать ВУЗ");
             Console.WriteLine("3 - Создать школу");
+            Console.WriteLine("0 - Выход");
+            Console.WriteLine();
+        }
+        public void ShowMenuTwo()
+        {
+            Console.Clear();
+            Console.WriteLine("1 - Печать всех людей");
+            Console.WriteLine("2 - Добавить человека");
+            Console.WriteLine("3 - Сортировка кол-ции по ID human");
             Console.WriteLine("0 - Выход");
             Console.WriteLine();
         }

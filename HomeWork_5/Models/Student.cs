@@ -1,11 +1,13 @@
 ﻿using HomeWork_5.Infrastructure.ExceptionBase;
 using HomeWork_5.Infrastructure.Interfaces;
+using HomeWork_5.Infrastructure.List;
 using HomeWork_5.Models.Base;
 
 namespace HomeWork_5.Models
 {
     internal class Student : Human, ILearning
     {
+        private DictionarySpecialty dictionarySpecialty { get; set; }
         /// <summary> Название университета </summary>
         protected string NameUniversity { get; private set; }
 
@@ -18,13 +20,14 @@ namespace HomeWork_5.Models
         /// <summary> Курс </summary>
         protected int Course { get; private set; }
 
-        public Student(string nameUniversity, string faculty, string specialty, int course, 
-            int id, string name, int lastName, int age)
+        public Student(string nameUniversity, string faculty, int course, 
+            int id, string name, string lastName, int age)
             : base(id, name, lastName, age)
         {
+            dictionarySpecialty = new DictionarySpecialty();
             NameUniversity = nameUniversity;
             Faculty = faculty;
-            Specialty = specialty;
+            Specialty = dictionarySpecialty.typesSpecialty.FirstOrDefault(x => x.Key == faculty).Value;
             if (age < 13)
                 new AppException("Возраст студента должен быть с 14 лет");
             if (course < 0 || course > 6)
@@ -39,8 +42,7 @@ namespace HomeWork_5.Models
         public override string ToString()
         {
             return $"{Id}. " +
-                $"Имя: {Name}\n" +
-                $"Фамилия: {LastName}\n" +
+                $"ИФ: {Name} {LastName}\n" +
                 $"Возраст: {Age}\n" +
                 $"Университет: {NameUniversity}\n" +
                 $"Факультет: {Faculty}\n" +
