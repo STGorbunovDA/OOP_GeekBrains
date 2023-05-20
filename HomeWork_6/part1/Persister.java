@@ -1,10 +1,10 @@
-public class Persister implements IGetPersisterUser {
+public class Persister implements IGetInfoUser {
 	private User user;
 	
 	public Persister(User user){
 		this.user = user;
 	}
-	public String GetPersisterUser(){
+	public String GetInfoUser(){
 		return "Save user: " + user.getName();
 	}
 

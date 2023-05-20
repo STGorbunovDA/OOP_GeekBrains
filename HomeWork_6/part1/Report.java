@@ -1,11 +1,11 @@
-public class Report implements IGetReportUser {
+public class Report implements IGetInfoUser {
     private User user;
 
     public Report(User user)
     {
         this.user = user;
     }
-    public String GetReportUser() {
+    public String GetInfoUser() {
         return "Report for user: " + user.getName();
     }
 }
