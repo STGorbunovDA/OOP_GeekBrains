@@ -13,12 +13,41 @@ namespace HomeWork_5.Presenters
         private readonly HumanRepository humanRepository;
 
         public InformationSystemBase informationSystem;
+
         private ObservableCollection<Human> HumanColl { get; set; }
+        
         public ConfigsPresenter(IView view)
         {
             this.view = view;
             humanRepository = new HumanRepository();
             HumanColl = new ObservableCollection<Human>();
+        }
+
+        public void AppRun()
+        {
+            while (true)
+            {
+                view.ShowMenuOne();
+                view.ShowMessage("Выберите пункт меню: ");
+                int choose = view.ReadChooseInt();
+                if (choose == -1)
+                {
+                    Console.Clear();
+                    view.ShowMessage("Ошибка! Вы ввели не число!");
+                    Console.ReadLine();
+                    continue;
+                }
+                if (choose == 0)
+                    break;
+                if (choose < 0 || choose > 4) //TODO продумать кол-во меню
+                {
+                    Console.Clear();
+                    view.ShowMessage("Ошибка! Такого пункта меню не существует.");
+                    Console.ReadLine();
+                    continue;
+                }
+                ProcessInput(choose);
+            }
         }
 
         private void WorkInformationSystem(int chooseHumanColl, string name)
@@ -128,32 +157,8 @@ namespace HomeWork_5.Presenters
             informationSystem = new(name, HumanColl);
             WorkInformationSystem(chooseHumanColl, name);
         }
-        public void AppRun()
-        {
-            while (true)
-            {
-                view.ShowMenuOne();
-                view.ShowMessage("Выберите пункт меню: ");
-                int choose = view.ReadChooseInt();
-                if (choose == -1)
-                {
-                    Console.Clear();
-                    view.ShowMessage("Ошибка! Вы ввели не число!");
-                    Console.ReadLine();
-                    continue;
-                }
-                if (choose == 0)
-                    break;
-                if (choose < 0 || choose > 4) //TODO продумать кол-во меню
-                {
-                    Console.Clear();
-                    view.ShowMessage("Ошибка! Такого пункта меню не существует.");
-                    Console.ReadLine();
-                    continue;
-                }
-                ProcessInput(choose);
-            }
-        }
+
+       
 
 
 
