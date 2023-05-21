@@ -1,6 +1,7 @@
 ﻿using FigthingClub.Infrastructure;
 using FigthingClub.Models;
 using FigthingClub.Models.Base;
+using FigthingClub.Presenters.Base;
 using FigthingClub.View.Base;
 
 namespace FigthingClub.Presenters

@@ -1,4 +1,6 @@
-﻿namespace FigthingClub.Models.Base
+﻿using FigthingClub.Models.Base;
+
+namespace FigthingClub.Presenters.Base
 {
     public interface IGame
     {

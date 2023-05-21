@@ -7,7 +7,7 @@ namespace FigthingClub.Models
         public Archer(string name = "Имя должен выбрать игрок") : base(name, "Лучник",
             "Точность - его главное оружие, но малый урон от 1-10 урона\n" +
             "иногда прицеливаясь лучник метко стреляет и может убить соперника\n" +
-            "шанс на убийство соперника 10%,", 1, 4, 5) 
+            "шанс на убийство соперника 5%,", 1, 4, 5) 
         {
 
         }
@@ -15,7 +15,7 @@ namespace FigthingClub.Models
         {
             int totalDamage = random.Next(1, 11);
             int chance = random.Next(1, 101);
-            if (chance <= 10)
+            if (chance <= 5)
             {
                 totalDamage = 10000;
                 Console.WriteLine($"{Name} на секунду прицеливается и пускает\n" +
